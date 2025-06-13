@@ -9,16 +9,22 @@ import { showUsage } from '../utils'
 // Vérifie qu'on est bien dans un projet Next.js
 function ensureNextProject() {
   const cwd = process.cwd()
-  const hasNextConfig =
-    fs.existsSync(path.join(cwd, 'next.config.js')) ||
-    fs.existsSync(path.join(cwd, 'next.config.mjs')) ||
-    fs.existsSync(path.join(cwd, 'next.config.ts')) ||
-    fs.existsSync(path.join(cwd, 'next.config.mts'))
-
+  const configFiles = [
+    'next.config.js',
+    'next.config.mjs',
+    'next.config.ts',
+    'next.config.mts',
+  ]
+  
+  const hasNextConfig = configFiles.some(file =>
+    fs.existsSync(path.resolve(cwd, file))
+  )
+  
   if (!hasNextConfig) {
-    console.error('❌ Vous devez être dans un projet Next.js (avec un fichier next.config.js)')
+    console.error('❌ Vous devez être dans un projet Next.js (fichier next.config.* manquant)')
     process.exit(1)
   }
+  
 }
 
 const args = process.argv.slice(2)
@@ -47,13 +53,13 @@ args.slice(2).forEach(opt => {
 
 switch (command) {
   case 'page':
-    createPage(name, options)
-    break
+  createPage(name, options)
+  break
   case 'component':
-    createComponent(name, options)
-    break
+  createComponent(name, options)
+  break
   default:
-    console.error(`Commande inconnue : ${command}`)
-    showUsage()
-    process.exit(1)
+  console.error(`Commande inconnue : ${command}`)
+  showUsage()
+  process.exit(1)
 }
