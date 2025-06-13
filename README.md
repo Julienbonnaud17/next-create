@@ -102,7 +102,7 @@ src/components/Button.tsx
 
 ```bash
 # Cloner le repo
-git clone https://github.com/ton-pseudo/next-create.git
+git clone https://github.com/Julienbonnaud17/next-create.git
 cd next-create
 
 # Installer les dépendances

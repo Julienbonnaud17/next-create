@@ -1,6 +1,6 @@
 {
   "name": "next-create",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI pour générer des pages et composants Next.js",
   "bin": {
     "next-create": "./dist/bin/next-create.js"

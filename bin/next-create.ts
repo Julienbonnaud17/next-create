@@ -11,7 +11,9 @@ function ensureNextProject() {
   const cwd = process.cwd()
   const hasNextConfig =
     fs.existsSync(path.join(cwd, 'next.config.js')) ||
-    fs.existsSync(path.join(cwd, 'next.config.mjs'))
+    fs.existsSync(path.join(cwd, 'next.config.mjs')) ||
+    fs.existsSync(path.join(cwd, 'next.config.ts')) ||
+    fs.existsSync(path.join(cwd, 'next.config.mts'))
 
   if (!hasNextConfig) {
     console.error('❌ Vous devez être dans un projet Next.js (avec un fichier next.config.js)')
