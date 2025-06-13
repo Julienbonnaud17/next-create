@@ -1,0 +1,20 @@
+{
+  "name": "next-create",
+  "version": "1.0.0",
+  "description": "CLI pour générer des pages et composants Next.js",
+  "bin": {
+    "next-create": "./dist/bin/next-create.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["nextjs", "cli", "create", "component", "page"],
+  "author": "getsu",
+  "license": "MIT",
+  "files": ["dist", "README.md"],
+  "main": "dist/bin/next-create.js",
+  "devDependencies": {
+    "@types/node": "^20.5.1",
+    "typescript": "^5.1.6"
+  }
+}
